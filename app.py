@@ -56,7 +56,7 @@ def create_store_item():
 def get_items_in_store(name):
     for store in stores:
         if store['name'] == name:
-            return jsonify(store['items'])
+            return jsonify({'items': store['items']})
     return {"Error message": "Items not found : ("}
 
 
