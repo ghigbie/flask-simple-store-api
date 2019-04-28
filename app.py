@@ -38,10 +38,10 @@ def create_store():
 
 @app.route('/store/<string:name>')
 def get_store(name):
-    for store in stores:
-        if store['name'] == name:
-            return jsonify(store)
-    return {"Error message": "Store not found : ("} 
+    # for store in stores:
+    #     if store['name'] == name:
+    #         return jsonify(store)
+    return jsonify({'Error message': 'Store not found'})
 
 
 @app.route('/store')
@@ -59,14 +59,14 @@ def create_item_in_store():
             }
             stores['name'].append(item)
             return jsonify(new_item)
-    return {"Error message": "Store not found : ("}
+    return jsonify({'Error message': 'Store not found'})
 
 @app.route('/store/<string:name>/item')
 def get_items_in_store(name):
     for store in stores:
         if store['name'] == name:
             return jsonify({'items': store['items']})
-    return {"Error message": "Items not found : ("}
+    return jsonify({'Error message': 'Store not found'})
 
 
 if __name__ == '__main__':
