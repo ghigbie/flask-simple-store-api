@@ -19,6 +19,23 @@ stores = [
                 'price': '2.90'
             }
         ]
+    },
+    {
+        'name': 'Competitive Mochi Store',
+        'items': [
+            {
+                'name': 'Mochi',
+                'price': '2.50'
+            },
+            {
+                'name': 'Butter Mochi',
+                'price': '2.70'
+            },
+            {
+                'name': 'Mango Mochi',
+                'price': '2.90'
+            }
+        ]
     }
 ]
 
@@ -38,9 +55,9 @@ def create_store():
 
 @app.route('/store/<string:name>')
 def get_store(name):
-    # for store in stores:
-    #     if store['name'] == name:
-    #         return jsonify(store)
+    for store in stores:
+        if store['name'] == name:
+            return jsonify(store)
     return jsonify({'Error message': 'Store not found'})
 
 
