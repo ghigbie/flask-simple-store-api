@@ -2,6 +2,26 @@ form flask import Flask
 
 app = Flask(__name__)
 
+stores = [
+    {
+        'name': 'Wonderful Mochi Store',
+        'items': [
+            {
+                'name': 'Mochi',
+                'price': '2.50'
+            },
+            {
+                'name': 'Butter Mochi',
+                'price': '2.70'
+            },
+            {
+                'name': 'Mango Mochi',
+                'price': '2.90'
+            }
+        ]
+    }
+]
+
 @app.route('/')
 def home():
     return "Yo mochi!"
